@@ -4,6 +4,6 @@ import { Button } from 'react-native';
 export default props => (
     <Button
         title='Calcular'
-        onPress={() => true}
+        onPress={props.acao}
     />
 );

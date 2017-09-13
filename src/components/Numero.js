@@ -4,6 +4,7 @@ import { TextInput, StyleSheet } from 'react-native';
 export default props => (
     <TextInput
         style={styles.numero}
+        value={props.num}
     />
 );
 
