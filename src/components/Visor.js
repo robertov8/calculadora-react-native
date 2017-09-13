@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 
-export default props => (
-    <View>
-        <TextInput
-            placeholder='Resultado'
-            editable={false}
-            style={styles.visor}
-        />
-    </View>
-);
+export default class Visor extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = { resultado: '' };
+    }
+
+    render() {
+        return (
+            <View>
+                <TextInput
+                    placeholder='Resultado'
+                    style={styles.visor}
+                    value={this.state.resultado}
+                />
+            </View>
+        );
+    }
+}
 
 const styles = StyleSheet.create({
     visor: {
