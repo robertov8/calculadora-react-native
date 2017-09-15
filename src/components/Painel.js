@@ -6,64 +6,20 @@ import Operacao from './Operacao';
 import Comando from './Comando';
 
 class Painel extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            num1: '10',
-            num2: '25',
-            operacao: 'soma'
-        };
-
-        this.calcular = this.calcular.bind(this);
-        this.atualizaValor = this.atualizaValor.bind(this);
-        this.atualizaOperacao = this.atualizaOperacao.bind(this);
-    }
-
-    calcular() {
-        const { num1, num2 } = this.state;
-        let resultado = 0;
-
-        switch (this.state.operacao) {
-            case 'soma':
-                resultado = parseFloat(num1) + parseFloat(num2);
-                break;
-            case 'subtracao':
-                resultado = parseFloat(num1) - parseFloat(num2);
-                break;
-            default:
-                resultado = 0;
-                break;
-        }
-
-        console.log(resultado);
-    }
-
-    atualizaValor(nomeDoCampo, valor) {
-        const obj = {};
-        obj[nomeDoCampo] = valor;
-
-        this.setState(obj);
-    }
-
-    atualizaOperacao(operacao){
-        this.setState({operacao});
-    }
-
     render() {
         return (
             <View>
                 <Entrada
-                    num1={this.state.num1}
-                    num2={this.state.num2}
-                    atualizaValor={this.atualizaValor}
+                    num1={this.props.num1}
+                    num2={this.props.num2}
+                    atualizaValor={this.props.atualizaValor}
                 />
                 <Operacao
-                    operacao={this.state.operacao}
-                    atualizaOperacao={this.atualizaOperacao}
+                    operacao={this.props.operacao}
+                    atualizaOperacao={this.props.atualizaOperacao}
                 />
 
-                <Comando acao={this.calcular} />
+                <Comando acao={this.props.acao} />
             </View>
         );
     }
