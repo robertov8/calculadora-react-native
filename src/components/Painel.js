@@ -22,8 +22,21 @@ class Painel extends Component {
 
     calcular() {
         const { num1, num2 } = this.state;
-        const resultado = parseFloat(num1) + parseFloat(num2);
-        // alert(`Sim vamos calcular ${resultado}`);
+        let resultado = 0;
+
+        switch (this.state.operacao) {
+            case 'soma':
+                resultado = parseFloat(num1) + parseFloat(num2);
+                break;
+            case 'subtracao':
+                resultado = parseFloat(num1) - parseFloat(num2);
+                break;
+            default:
+                resultado = 0;
+                break;
+        }
+
+        console.log(resultado);
     }
 
     atualizaValor(nomeDoCampo, valor) {
