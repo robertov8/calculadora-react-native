@@ -17,6 +17,7 @@ class Painel extends Component {
 
         this.calcular = this.calcular.bind(this);
         this.atualizaValor = this.atualizaValor.bind(this);
+        this.atualizaOperacao = this.atualizaOperacao.bind(this);
     }
 
     calcular() {
@@ -28,8 +29,12 @@ class Painel extends Component {
     atualizaValor(nomeDoCampo, valor) {
         const obj = {};
         obj[nomeDoCampo] = valor;
-        console.log(obj);
+
         this.setState(obj);
+    }
+
+    atualizaOperacao(operacao){
+        this.setState({operacao});
     }
 
     render() {
@@ -42,6 +47,7 @@ class Painel extends Component {
                 />
                 <Operacao
                     operacao={this.state.operacao}
+                    atualizaOperacao={this.atualizaOperacao}
                 />
 
                 <Comando acao={this.calcular} />
