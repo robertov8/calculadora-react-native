@@ -9,7 +9,11 @@ class Painel extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { num1: '10', num2: '25' };
+        this.state = {
+            num1: '10',
+            num2: '25',
+            operacao: 'soma'
+        };
 
         this.calcular = this.calcular.bind(this);
         this.atualizaValor = this.atualizaValor.bind(this);
@@ -36,7 +40,10 @@ class Painel extends Component {
                     num2={this.state.num2}
                     atualizaValor={this.atualizaValor}
                 />
-                <Operacao />
+                <Operacao
+                    operacao={this.state.operacao}
+                />
+
                 <Comando acao={this.calcular} />
             </View>
         );
