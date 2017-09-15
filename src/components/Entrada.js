@@ -5,8 +5,8 @@ import Numero from './Numero';
 
 export default props => (
     <View style={styles.numeros}>
-        <Numero num={props.num1} />
-        <Numero num={props.num2} />
+        <Numero nome='num1' num={props.num1} atualizaValor={props.atualizaValor} />
+        <Numero nome='num2' num={props.num2} atualizaValor={props.atualizaValor} />
     </View>
 );
 
